@@ -73,8 +73,6 @@ public class JacksonConfig {
                 SerializationFeature.WRITE_DATES_AS_TIMESTAMPS
         );
 
-
-
         /*
          * Ignore unknown JSON properties
          *
@@ -113,26 +111,6 @@ public class JacksonConfig {
         mapper.setDefaultPropertyInclusion(
                 JsonInclude.Include.NON_NULL
         );
-        /*
-         * Ignore unknown JSON fields during deserialization.
-         *
-         * Prevents errors if request JSON contains
-         * extra fields not defined in the DTO.
-         *
-         * Example:
-         *
-         * JSON:
-         * {
-         *   "username": "theavin",
-         *   "age": 20
-         * }
-         *
-         * DTO:
-         * private String username;
-         *
-         * "age" will be ignored safely.
-         */
-        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         return mapper;
     }
 }
