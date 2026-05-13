@@ -14,10 +14,6 @@ import java.time.LocalDateTime;
 @Table(name = "user_sessions")
 public class UserSession extends BaseEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     @Column(nullable = false, columnDefinition = "TEXT")
     private String refreshTokenHash;
 
