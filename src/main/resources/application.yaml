@@ -1,3 +1,35 @@
 spring:
   application:
     name: Kampus
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 10MB
+  mvc:
+    path match:
+      matching-strategy: ant_path_matcher
+  data:
+    redis:
+      port: 6379
+      host: localhost
+
+  mail:
+      host: smtp.gmail.com
+      port: ${REDIS_PORT}
+      username: ${MAIL_USERNAME}
+      password: ${MAIL_PASSWORD}
+      properties:
+        mail.smtp.auth: true
+        mail.smtp.starttls.enable: true

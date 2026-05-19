@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
-
+import java.util.UUID;
 
 
 @Getter
@@ -16,8 +16,8 @@ import java.time.LocalDateTime;
 public abstract class BaseEntity {
     @Id
     @EqualsAndHashCode.Include
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
@@ -31,7 +31,6 @@ public abstract class BaseEntity {
         createdAt = now;
         updatedAt = now;
     }
-
     @PreUpdate
     protected void onUpdate() {
         updatedAt = LocalDateTime.now();
