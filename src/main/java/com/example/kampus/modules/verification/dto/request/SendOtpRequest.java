@@ -1,23 +1,21 @@
-package com.example.kampus.modules.auth.dto.request;
+package com.example.kampus.modules.verification.dto.request;
 
-import com.example.kampus.modules.auth.enums.AuthProviderType;
 import com.example.kampus.modules.verification.enums.VerificationPurpose;
 import com.example.kampus.modules.verification.validatiton.annotation.ValidIdentifier;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 
-@Data
-public class VerifyOtpRequest {
+@Getter
+@Setter
+public class SendOtpRequest {
 
 
     @ValidIdentifier
-    @NotBlank
     private String identifier;
 
-    @NotBlank
-    private String otp;
+
 
     @NotNull
     private VerificationPurpose purpose;

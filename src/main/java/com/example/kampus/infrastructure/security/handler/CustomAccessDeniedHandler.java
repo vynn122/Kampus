@@ -1,4 +1,4 @@
-package com.example.kampus.security.handler;
+package com.example.kampus.infrastructure.security.handler;
 
 import com.example.kampus.common.enums.ErrorCode;
 import com.example.kampus.common.response.ApiResponse;
@@ -6,6 +6,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.jspecify.annotations.NonNull;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.stereotype.Component;
@@ -19,7 +20,7 @@ import java.io.IOException;
 public class CustomAccessDeniedHandler implements AccessDeniedHandler {
     private final ObjectMapper objectMapper;
     @Override
-    public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
+    public void handle(HttpServletRequest request, HttpServletResponse response, @NonNull AccessDeniedException accessDeniedException) throws IOException, ServletException {
         ErrorCode error = ErrorCode.ACCESS_DENIED;
         response.setStatus(error.getStatus().value());
         response.setContentType("application/json");

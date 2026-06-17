@@ -1,4 +1,4 @@
-package com.example.kampus.security.handler;
+package com.example.kampus.infrastructure.security.handler;
 
 import com.example.kampus.common.enums.ErrorCode;
 import com.example.kampus.common.response.ApiResponse;

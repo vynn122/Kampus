@@ -141,6 +141,13 @@ public enum ErrorCode {
             HttpStatus.TOO_MANY_REQUESTS
     ),
 
+    OTP_COOLDOWN(
+            "OTP_005",
+            "Please wait before requesting another OTP",
+            HttpStatus.TOO_MANY_REQUESTS
+    ),
+
+
     /*
      * =========================================================
      * VALIDATION

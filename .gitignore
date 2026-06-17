@@ -36,3 +36,6 @@ build/
 .DS_Store
 
 .env
+
+
+src/main/resources/keys/private_key.pem
